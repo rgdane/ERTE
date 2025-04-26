@@ -12,16 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('residents', function (Blueprint $table) {
-            $table->id();
+            $table->id('resident_id');
+            $table->string('resident_fullname');
+            $table->string('resident_phone');
+            $table->boolean('is_permanent');
+            $table->boolean('is_married');
+            $table->string('resident_id_card')->nullable(); // path to image
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('residents');
+        Schema::dropIfExists('resident');
     }
 };
