@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\HouseController;
+use App\Http\Controllers\ResidentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ResidentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('residents', ResidentController::class);
+Route::apiResource('houses', HouseController::class);
 
