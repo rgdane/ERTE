@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Resident extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
     protected $table = 'residents';
     protected $primaryKey = 'resident_id';
     public $incrementing = true;
@@ -20,4 +21,8 @@ class Resident extends Model
         'is_married',
         'resident_id_card'
     ];
+
+    public function houseHistories() {
+        return $this->hasMany(ResidentHistory::class);
+    }
 }
