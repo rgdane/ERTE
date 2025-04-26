@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HouseController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\ResidentHistoryController;
 use Illuminate\Http\Request;
@@ -23,8 +24,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('residents', ResidentController::class);
 Route::apiResource('houses', HouseController::class);
+
 Route::apiResource('resident-histories', ResidentHistoryController::class);
 Route::get('residents/{resident_id}/histories', [ResidentHistoryController::class, 'indexByResident']);
 Route::get('houses/{house_id}/histories', [ResidentHistoryController::class, 'indexByHouse']);
 
+Route::apiResource('payments', PaymentController::class);
 
