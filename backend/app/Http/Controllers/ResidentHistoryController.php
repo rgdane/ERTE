@@ -12,7 +12,7 @@ class ResidentHistoryController extends Controller
      */
     public function index()
     {
-        return ResidentHistory::all();
+        return ResidentHistory::with(['resident', 'house'])->get();
     }
 
     public function indexByHouse($house_id)
@@ -50,12 +50,12 @@ class ResidentHistoryController extends Controller
         ResidentHistory::where('house_id', $data['house_id'])
             ->whereNull('end_date')
             ->update(['end_date' => now()]);
-
+        
         $history = ResidentHistory::create([
             'house_id' => $data['house_id'],
             'resident_id' => $data['resident_id'],
             'start_date' => $data['start_date'],
-            'end_date' => $data['end_date'],
+            'end_date' => isset($data['end_date']) ? $data['end_date'] : null,
         ]);
 
         return response()->json([
