@@ -8,11 +8,13 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const { Sider } = Layout;
 
 export default function Sidebar({ collapsed }) {
+  const location = useLocation();
+
   return (
     <Sider theme="light" trigger={null} collapsible collapsed={collapsed}>
       <div
@@ -29,23 +31,24 @@ export default function Sidebar({ collapsed }) {
       >
         ERTE
       </div>
-      <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
-        <Menu.Item key="1" icon={<HomeOutlined />}>
+
+      <Menu theme="light" mode="inline" selectedKeys={[location.pathname]}>
+        <Menu.Item key="/" icon={<HomeOutlined />}>
           <Link to="/">Rumah</Link>
         </Menu.Item>
-        <Menu.Item key="2" icon={<UserOutlined />}>
+        <Menu.Item key="/penghuni" icon={<UserOutlined />}>
           <Link to="/penghuni">Penghuni</Link>
         </Menu.Item>
-        <Menu.Item key="3" icon={<HistoryOutlined />}>
+        <Menu.Item key="/riwayat-penghuni" icon={<HistoryOutlined />}>
           <Link to="/riwayat-penghuni">Riwayat Penghuni</Link>
         </Menu.Item>
-        <Menu.Item key="4" icon={<FileDoneOutlined />}>
+        <Menu.Item key="/pembayaran" icon={<FileDoneOutlined />}>
           <Link to="/pembayaran">Pembayaran</Link>
         </Menu.Item>
-        <Menu.Item key="5" icon={<AuditOutlined />}>
+        <Menu.Item key="/pengeluaran" icon={<AuditOutlined />}>
           <Link to="/pengeluaran">Pengeluaran</Link>
         </Menu.Item>
-        <Menu.Item key="6" icon={<BarChartOutlined />}>
+        <Menu.Item key="/laporan-keuangan" icon={<BarChartOutlined />}>
           <Link to="/laporan-keuangan">Laporan Keuangan</Link>
         </Menu.Item>
       </Menu>

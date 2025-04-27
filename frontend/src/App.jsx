@@ -30,7 +30,7 @@ function AppContent({ collapsed, setCollapsed }) {
     '/laporan-keuangan': 'Laporan Keuangan',
   };
 
-  const currentTitle = titles[location.pathname] || 'Dashboard';
+  const currentTitle = titles[location.pathname] || 'Rumah';
 
   return (
     <Layout>
