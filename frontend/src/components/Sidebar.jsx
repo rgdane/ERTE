@@ -14,7 +14,7 @@ const { Sider } = Layout;
 
 export default function Sidebar({ collapsed }) {
   return (
-    <Sider trigger={null} collapsible collapsed={collapsed}>
+    <Sider theme="light" trigger={null} collapsible collapsed={collapsed}>
       <div
         style={{
           height: 32,
@@ -22,7 +22,6 @@ export default function Sidebar({ collapsed }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: 'white',
           fontWeight: 'bold',
           fontSize: 20,
           borderRadius: 8,
@@ -30,7 +29,7 @@ export default function Sidebar({ collapsed }) {
       >
         ERTE
       </div>
-      <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+      <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
         <Menu.Item key="1" icon={<HomeOutlined />}>
           <Link to="/">Rumah</Link>
         </Menu.Item>
