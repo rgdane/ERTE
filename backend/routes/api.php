@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\HouseController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ResidentController;
@@ -30,4 +31,5 @@ Route::get('residents/{resident_id}/histories', [ResidentHistoryController::clas
 Route::get('houses/{house_id}/histories', [ResidentHistoryController::class, 'indexByHouse']);
 
 Route::apiResource('payments', PaymentController::class);
+Route::apiResource('expenses', ExpenseController::class);
 

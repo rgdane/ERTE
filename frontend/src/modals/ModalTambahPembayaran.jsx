@@ -1,5 +1,4 @@
 import { Modal, Form, Input, Select, Upload, Button, DatePicker, InputNumber } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -102,16 +101,16 @@ export default function ModalTambahPembayaran({ isModalOpen, setIsModalOpen, fet
                     <Input disabled />
                 </Form.Item>
 
-                <Form.Item name="payment_date" label="Tanggal Pembayaran" rules={[{ required: false }]}>
+                <Form.Item name="payment_date" label="Tanggal Pembayaran" rules={[{ required: true }]}>
                     <DatePicker />
                 </Form.Item>
 
                 <Form.Item label="Periode Bulan" name="month_period" rules={[{ required: true, message: 'Masukkan periode bulan' }]}>
-                    <Input placeholder="Masukkan periode bulan dalam angka"/>
+                    <InputNumber placeholder="Masukkan periode bulan dalam angka" style={{ width: '100%' }}/>
                 </Form.Item>
             
                 <Form.Item label="Periode Tahun" name="year_period" rules={[{ required: true, message: 'Masukkan periode tahun' }]}>
-                    <Input />
+                    <InputNumber style={{ width: '100%' }}/>
                 </Form.Item>
             
             </Form>
