@@ -17,11 +17,11 @@ class Payment extends Model
     protected $fillable = [
         'resident_id',
         'payment_type',
+        'month',
         'amount',
         'payment_date',
-        'month',
-        'year',
-        'is_paid',
+        'month_period',
+        'year_period',
     ];
 
     public function resident()

@@ -60,10 +60,10 @@ export default function ModalUbahPenghuni({ isModalOpen, handleCancel, editingDa
     >
         <Form form={form} layout="vertical">
             <Form.Item label="Nama Lengkap" name="resident_fullname" rules={[{ required: true, message: 'Masukkan nama lengkap' }]}>
-            <Input />
+                <Input />
             </Form.Item>
             <Form.Item label="Telepon" name="resident_phone" rules={[{ required: true, message: 'Masukkan nomor telepon' }]}>
-            <Input />
+                <Input />
             </Form.Item>
             <Form.Item label="Status Tinggal" name="is_permanent" rules={[{ required: true, message: 'Pilih status tinggal' }]}>
             <Select placeholder="Pilih status tinggal">

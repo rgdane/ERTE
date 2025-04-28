@@ -26,11 +26,11 @@ class PaymentController extends Controller
         $data = $request->validate([
             'resident_id' => 'required|exists:residents,resident_id',
             'payment_type' => ['required', Rule::in(array_column(PaymentType::cases(), 'value'))],
+            'month' => 'required|integer',
             'amount' => 'required|integer|min:0',
             'payment_date' => 'required|date',
-            'month' => 'required|string',
-            'year' => 'required|integer',
-            'is_paid' => 'boolean',
+            'month_period' => 'required|integer',
+            'year_period' => 'required|integer',
         ]);
 
         $payment = Payment::create($data);
@@ -58,12 +58,13 @@ class PaymentController extends Controller
         $payment = Payment::findOrFail($id);
 
         $data = $request->validate([
+            'resident_id' => 'sometimes|exists:residents,resident_id',
             'payment_type' => ['sometimes', Rule::in(array_column(PaymentType::cases(), 'value'))],
+            'month' => 'sometimes|integer',
             'amount' => 'sometimes|integer|min:0',
             'payment_date' => 'sometimes|date',
-            'month' => 'sometimes|string',
-            'year' => 'sometimes|integer',
-            'is_paid' => 'boolean',
+            'month_period' => 'sometimes|integer',
+            'year_period' => 'sometimes|integer',
         ]);
 
         $payment->update($data);
