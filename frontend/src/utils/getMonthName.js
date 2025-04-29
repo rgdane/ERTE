@@ -1,8 +1,5 @@
 // Array nama bulan manual (Indonesia)
-const monthName = [
-    "Januari", "Februari", "Maret", "April", "Mei", "Juni",
-    "Juli", "Agustus", "September", "Oktober", "November", "Desember"
-];
+import monthName from "./monthName.js";
 
 /**
    * Convert angka bulan ke nama bulan
@@ -11,5 +8,5 @@ const monthName = [
    */
 export function getMonthName(month) {
     if (month < 1 || month > 12) return "Bulan tidak valid";
-    return monthName[month - 1];
+    return monthName()[month - 1];
 }

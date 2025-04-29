@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Table, Button, Space, message, Popconfirm, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
+import { Button, Input, message, Popconfirm, Space, Table } from 'antd';
 import axios from 'axios';
-import { getMonthName } from '../utils/formatBulan';
+import React, { useEffect, useState } from 'react';
 import ModalTambahPengeluaran from '../modals/ModalTambahPengeluaran';
 import ModalUbahPengeluaran from '../modals/ModalUbahPengeluaran';
+import { getMonthName } from '../utils/getMonthName';
 
 export default function Pengeluaran() {
     const [data, setData] = useState([]); // state untuk data pengeluaran

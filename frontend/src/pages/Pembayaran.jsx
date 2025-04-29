@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Table, Button, Space, message, Popconfirm, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
+import { Button, Input, message, Popconfirm, Space, Table } from 'antd';
 import axios from 'axios';
-import { getMonthName } from '../utils/formatBulan';
+import React, { useEffect, useState } from 'react';
 import ModalTambahPembayaran from '../modals/ModalTambahPembayaran';
 import ModalUbahPembayaran from '../modals/ModalUbahPembayaran';
+import { getMonthName } from '../utils/getMonthName';
 
 export default function Pembayaran() {
     const [data, setData] = useState([]); // state untuk data pembayaran
@@ -62,8 +62,6 @@ export default function Pembayaran() {
                 month_period: values.month_period,
                 year_period: values.year_period,
             };
-            console.log(payload);
-            
             
         await axios.post(`http://127.0.0.1:8000/api/payments/${editingData.payment_id}?_method=PUT`, payload, {
             headers: {

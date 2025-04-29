@@ -3,6 +3,7 @@
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\HouseController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\ResidentHistoryController;
 use Illuminate\Http\Request;
@@ -32,4 +33,11 @@ Route::get('houses/{house_id}/histories', [ResidentHistoryController::class, 'in
 
 Route::apiResource('payments', PaymentController::class);
 Route::apiResource('expenses', ExpenseController::class);
+
+Route::get('payment-summary/{year}', [ReportController::class, 'getPaymentsByYear']);
+Route::get('payment-summary/{year}/{month}', [ReportController::class, 'getPaymentsDetail']);
+Route::get('expense-summary/{year}', [ReportController::class, 'getExpensesByYear']);
+Route::get('expense-summary/{year}/{month}', [ReportController::class, 'getExpensesDetail']);
+Route::get('years', [ReportController::class, 'getYear']);
+
 
