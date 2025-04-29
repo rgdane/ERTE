@@ -44,8 +44,6 @@ export default function ModalTambahPembayaran({ isModalOpen, setIsModalOpen, fet
             month: values.month,
             amount: values.amount,
             payment_date: values.payment_date.format('YYYY-MM-DD'),
-            month_period: values.month_period,
-            year_period: values.year_period,
         };
 
         console.log('Payload:', payload);
@@ -75,6 +73,10 @@ export default function ModalTambahPembayaran({ isModalOpen, setIsModalOpen, fet
             cancelText="Batal"
         >
             <Form form={form} layout="vertical" onFinish={handleSubmit}>
+                
+                <Form.Item name="payment_date" label="Tanggal Pembayaran" rules={[{ required: true }]}>
+                    <DatePicker />
+                </Form.Item>
 
                 <Form.Item name="resident_id" label="Penghuni" rules={[{ required: true }]}>
                     <Select placeholder="Pilih penghuni">
@@ -99,18 +101,6 @@ export default function ModalTambahPembayaran({ isModalOpen, setIsModalOpen, fet
                 
                 <Form.Item label="Nominal (Rp)" name="amount" rules={[{ required: true, message: 'Masukkan nominal (Rp)' }]}>
                     <Input disabled />
-                </Form.Item>
-
-                <Form.Item name="payment_date" label="Tanggal Pembayaran" rules={[{ required: true }]}>
-                    <DatePicker />
-                </Form.Item>
-
-                <Form.Item label="Periode Bulan" name="month_period" rules={[{ required: true, message: 'Masukkan periode bulan' }]}>
-                    <InputNumber placeholder="Masukkan periode bulan dalam angka" style={{ width: '100%' }}/>
-                </Form.Item>
-            
-                <Form.Item label="Periode Tahun" name="year_period" rules={[{ required: true, message: 'Masukkan periode tahun' }]}>
-                    <InputNumber style={{ width: '100%' }}/>
                 </Form.Item>
             
             </Form>

@@ -18,8 +18,6 @@ class Expense extends Model
         'expense_type',
         'expense_description',
         'amount',
-        'expense_date',
-        'month_period',
-        'year_period',
+        'expense_date'
     ];
 }

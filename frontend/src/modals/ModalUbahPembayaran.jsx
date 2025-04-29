@@ -70,6 +70,10 @@ export default function ModalUbahPembayaran({ isModalOpen, handleCancel, editing
     >
         <Form form={form} layout="vertical" onFinish={handleSubmit}>
 
+            <Form.Item name="payment_date" label="Tanggal Pembayaran" rules={[{ required: false }]}>
+                <DatePicker />
+            </Form.Item>
+
             <Form.Item name="resident_id" label="Penghuni" rules={[{ required: true }]}>
                 <Select placeholder="Pilih penghuni">
                 {residents.map((resident) => (
@@ -93,18 +97,6 @@ export default function ModalUbahPembayaran({ isModalOpen, handleCancel, editing
 
             <Form.Item label="Nominal (Rp)" name="amount" rules={[{ required: true, message: 'Masukkan nominal (Rp)' }]}>
                 <Input disabled />
-            </Form.Item>
-
-            <Form.Item name="payment_date" label="Tanggal Pembayaran" rules={[{ required: false }]}>
-                <DatePicker />
-            </Form.Item>
-
-            <Form.Item label="Periode Bulan" name="month_period" rules={[{ required: true, message: 'Masukkan periode bulan' }]}>
-                <Input placeholder="Masukkan periode bulan dalam angka"/>
-            </Form.Item>
-
-            <Form.Item label="Periode Tahun" name="year_period" rules={[{ required: true, message: 'Masukkan periode tahun' }]}>
-                <Input />
             </Form.Item>
 
         </Form>

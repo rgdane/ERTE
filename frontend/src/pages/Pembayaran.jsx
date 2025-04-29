@@ -4,7 +4,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ModalTambahPembayaran from '../modals/ModalTambahPembayaran';
 import ModalUbahPembayaran from '../modals/ModalUbahPembayaran';
-import { getMonthName } from '../utils/getMonthName';
 
 export default function Pembayaran() {
     const [data, setData] = useState([]); // state untuk data pembayaran
@@ -59,8 +58,6 @@ export default function Pembayaran() {
                 month: values.month,
                 amount: values.amount,
                 payment_date: values.payment_date.format('YYYY-MM-DD'),
-                month_period: values.month_period,
-                year_period: values.year_period,
             };
             
         await axios.post(`http://127.0.0.1:8000/api/payments/${editingData.payment_id}?_method=PUT`, payload, {
@@ -86,6 +83,11 @@ export default function Pembayaran() {
             render: (text, record, index) => index + 1,
         },
         {
+            title: 'Tanggal Pembayaran',
+            dataIndex: 'payment_date', // sesuai field API kamu
+            key: 'payment_date', 
+        },
+        {
             title: 'Penghuni',
             dataIndex: ['resident','resident_fullname'],
             key: 'resident_fullname',
@@ -101,25 +103,9 @@ export default function Pembayaran() {
             key: 'month',
         },
         {
-            title: 'Total (Rp)',
+            title: 'Nominal (Rp)',
             dataIndex: 'amount',
             key: 'amount',
-        },
-        {
-            title: 'Tanggal Pembayaran',
-            dataIndex: 'payment_date', // sesuai field API kamu
-            key: 'payment_date', 
-        },
-        {
-            title: 'Periode Bulan',
-            dataIndex: 'month_period', // sesuai field API kamu
-            key: 'month_period',
-            render: (value) => getMonthName(value), 
-        },
-        {
-            title: 'Periode Tahun',
-            dataIndex: 'year_period', // sesuai field API kamu
-            key: 'year_period',
         },
         {
             title: 'Aksi',

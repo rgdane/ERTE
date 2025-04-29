@@ -51,6 +51,11 @@ export default function ModalDetailLaporanKeuangan({ isModalOpen, handleOk, deta
             render: (text, record, index) => index + 1,
         },
         {
+            title: 'Tanggal Pembayaran',
+            dataIndex: 'payment_date', // sesuai field API kamu
+            key: 'payment_date', 
+        },
+        {
             title: 'Penghuni',
             dataIndex: ['resident','resident_fullname'],
             key: 'resident_fullname',
@@ -65,11 +70,6 @@ export default function ModalDetailLaporanKeuangan({ isModalOpen, handleOk, deta
             dataIndex: 'amount',
             key: 'amount',
         },
-        {
-            title: 'Tanggal Pembayaran',
-            dataIndex: 'payment_date', // sesuai field API kamu
-            key: 'payment_date', 
-        },
     ];
 
     const ExpenseColumns = [
@@ -78,6 +78,11 @@ export default function ModalDetailLaporanKeuangan({ isModalOpen, handleOk, deta
             dataIndex: 'index',
             key: 'index',
             render: (text, record, index) => index + 1,
+        },
+        {
+            title: 'Tanggal Pengeluaran',
+            dataIndex: 'expense_date', // sesuai field API kamu
+            key: 'expense_date',
         },
         {
             title: 'Jenis Pengeluaran',
@@ -94,11 +99,6 @@ export default function ModalDetailLaporanKeuangan({ isModalOpen, handleOk, deta
             title: 'Nominal (Rp)',
             dataIndex: 'amount',
             key: 'amount',
-        },
-        {
-            title: 'Tanggal Pengeluaran',
-            dataIndex: 'expense_date', // sesuai field API kamu
-            key: 'expense_date',
         },
     ];
 

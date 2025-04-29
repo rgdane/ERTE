@@ -4,7 +4,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ModalTambahPengeluaran from '../modals/ModalTambahPengeluaran';
 import ModalUbahPengeluaran from '../modals/ModalUbahPengeluaran';
-import { getMonthName } from '../utils/getMonthName';
 
 export default function Pengeluaran() {
     const [data, setData] = useState([]); // state untuk data pengeluaran
@@ -59,8 +58,6 @@ export default function Pengeluaran() {
                 expense_description: values.expense_description,
                 amount: values.amount,
                 expense_date: values.expense_date.format('YYYY-MM-DD'),
-                month_period: values.month_period,
-                year_period: values.year_period,
             };
             console.log(payload);
             
@@ -88,6 +85,11 @@ export default function Pengeluaran() {
             render: (text, record, index) => index + 1,
         },
         {
+            title: 'Tanggal Pengeluaran',
+            dataIndex: 'expense_date', // sesuai field API kamu
+            key: 'expense_date',
+        },
+        {
             title: 'Jenis Pengeluaran',
             dataIndex: 'expense_type',
             key: 'expense_type',
@@ -102,22 +104,6 @@ export default function Pengeluaran() {
             title: 'Nominal (Rp)',
             dataIndex: 'amount',
             key: 'amount',
-        },
-        {
-            title: 'Tanggal Pengeluaran',
-            dataIndex: 'expense_date', // sesuai field API kamu
-            key: 'expense_date',
-        },
-        {
-            title: 'Periode Bulan',
-            dataIndex: 'month_period', // sesuai field API kamu
-            key: 'month_period',
-            render: (value) => getMonthName(value),
-        },
-        {
-            title: 'Periode Tahun',
-            dataIndex: 'year_period', // sesuai field API kamu
-            key: 'year_period',
         },
         {
             title: 'Aksi',

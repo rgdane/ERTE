@@ -78,6 +78,12 @@ export default function Penghuni() {
 
     const columns = [
         {
+            title: 'No',
+            dataIndex: 'index',
+            key: 'index',
+            render: (text, record, index) => index + 1,
+        },
+        {
             title: 'Nama Lengkap',
             dataIndex: 'resident_fullname',
             key: 'resident_fullname',

@@ -19,9 +19,7 @@ class Payment extends Model
         'payment_type',
         'month',
         'amount',
-        'payment_date',
-        'month_period',
-        'year_period',
+        'payment_date'
     ];
 
     public function resident()

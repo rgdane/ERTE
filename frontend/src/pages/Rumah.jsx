@@ -72,6 +72,12 @@ export default function Rumah() {
 
     const columns = [
         {
+            title: 'No',
+            dataIndex: 'index',
+            key: 'index',
+            render: (text, record, index) => index + 1,
+        },
+        {
             title: 'Alamat',
             dataIndex: 'house_address',
             key: 'house_address',
