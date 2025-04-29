@@ -11,6 +11,7 @@ import RiwayatPenghuni from './pages/RiwayatPenghuni';
 import Pembayaran from './pages/Pembayaran';
 import Pengeluaran from './pages/Pengeluaran';
 import LaporanKeuangan from './pages/LaporanKeuangan';
+import { Footer } from 'antd/es/layout/layout';
 
 const { Content } = Layout;
 
@@ -47,6 +48,9 @@ function AppContent({ collapsed, setCollapsed }) {
             <Route path="/laporan-keuangan" element={<LaporanKeuangan />} />
           </Routes>
         </Content>
+        <Footer style={{ textAlign: 'center' }}>
+          Electronic Resident Transaction Environment ©{new Date().getFullYear()} Created by Dane
+        </Footer>
       </Layout>
     </Layout>
   );
