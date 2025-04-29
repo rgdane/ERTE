@@ -53,7 +53,7 @@ export default function ModalDetailLaporanKeuangan({ isModalOpen, handleOk, deta
         {
             title: 'Tanggal Pembayaran',
             dataIndex: 'payment_date', // sesuai field API kamu
-            key: 'payment_date', 
+            key: 'payment_date',
         },
         {
             title: 'Penghuni',
@@ -69,6 +69,7 @@ export default function ModalDetailLaporanKeuangan({ isModalOpen, handleOk, deta
             title: 'Nominal (Rp)',
             dataIndex: 'amount',
             key: 'amount',
+            render: value => new Intl.NumberFormat('id-ID').format(value),
         },
     ];
 
@@ -99,6 +100,7 @@ export default function ModalDetailLaporanKeuangan({ isModalOpen, handleOk, deta
             title: 'Nominal (Rp)',
             dataIndex: 'amount',
             key: 'amount',
+            render: value => new Intl.NumberFormat('id-ID').format(value),
         },
     ];
 

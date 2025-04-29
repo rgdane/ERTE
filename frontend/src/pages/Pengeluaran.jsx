@@ -104,6 +104,7 @@ export default function Pengeluaran() {
             title: 'Nominal (Rp)',
             dataIndex: 'amount',
             key: 'amount',
+            render: value => new Intl.NumberFormat('id-ID').format(value),
         },
         {
             title: 'Aksi',

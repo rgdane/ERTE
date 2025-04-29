@@ -123,16 +123,20 @@ export default function LaporanKeuangan() {
             title: 'Pemasukan',
             dataIndex: 'payment',
             key: 'payment',
+            
+            ,
         },
         {
             title: 'Pengeluaran',
             dataIndex: 'expense',
             key: 'expense',
+            render: value => new Intl.NumberFormat('id-ID').format(value),
         },
         {
             title: 'Sisa',
             dataIndex: 'remains',
             key: 'remains',
+            render: value => new Intl.NumberFormat('id-ID').format(value),
         },
         {
             title: 'Aksi',
