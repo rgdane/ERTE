@@ -63,7 +63,7 @@ export default function ModalUbahPembayaran({ isModalOpen, handleCancel, editing
 
     return (
     <Modal
-        title="Ubah Data Riwayat Penghuni"
+        title="Ubah Data Pembayaran"
         open={isModalOpen}
         onOk={handleSubmit}
         onCancel={handleCancel}

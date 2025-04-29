@@ -144,9 +144,9 @@ export default function Pembayaran() {
     return (
         <div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-            <h1>Daftar Riwayat Pembayaran</h1>
+            <h1>Daftar Pembayaran</h1>
             <Button type="primary" icon={<PlusOutlined />} onClick={() => setIsModalOpen(true)}>
-            Tambah Riwayat Pembayaran
+            Tambah Pembayaran
             </Button>
         </div>
         <Input.Search

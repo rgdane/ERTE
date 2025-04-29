@@ -104,7 +104,7 @@ export default function ModalDetailLaporanKeuangan({ isModalOpen, handleOk, deta
 
     return (
         <Modal
-            title={`Detail Laporan bulan ${getMonthName(detailDataMonth)}`}
+            title={`Detail Laporan Bulan ${getMonthName(detailDataMonth)}`}
             open={isModalOpen}
             onCancel={handleOk}         // Tombol X pakai handleOk juga
             footer={[

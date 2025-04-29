@@ -34,7 +34,7 @@ export default function ModalTambahPengeluaran({ isModalOpen, setIsModalOpen, fe
 
     return (
         <Modal
-            title="Tambah Riwayat Penghuni"
+            title="Tambah Pengeluaran"
             visible={isModalOpen}
             onCancel={() => setIsModalOpen(false)}
             onOk={() => form.submit()}

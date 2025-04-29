@@ -67,7 +67,7 @@ export default function ModalTambahPembayaran({ isModalOpen, setIsModalOpen, fet
 
     return (
         <Modal
-            title="Tambah Riwayat Penghuni"
+            title="Tambah Pembayaran"
             visible={isModalOpen}
             onCancel={() => setIsModalOpen(false)}
             onOk={() => form.submit()}

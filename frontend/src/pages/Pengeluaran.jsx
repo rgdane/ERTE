@@ -144,7 +144,7 @@ export default function Pengeluaran() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
             <h1>Daftar Pengeluaran</h1>
             <Button type="primary" icon={<PlusOutlined />} onClick={() => setIsModalOpen(true)}>
-            Tambah Riwayat Pengeluaran
+            Tambah Pengeluaran
             </Button>
         </div>
         <Input.Search
