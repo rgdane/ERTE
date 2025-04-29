@@ -19,7 +19,8 @@ class Resident extends Model
         'resident_phone',
         'is_permanent',
         'is_married',
-        'resident_id_card'
+        'resident_id_card',
+        'is_active'
     ];
 
     public function houseHistories() {

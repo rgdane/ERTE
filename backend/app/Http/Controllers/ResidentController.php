@@ -26,6 +26,7 @@ class ResidentController extends Controller
             'resident_phone' => 'required|string|max:20',
             'is_permanent' => 'required',
             'is_married' => 'required',
+            'is_active' => 'required',
             'resident_id_card' => 'nullable|image|max:2048',
         ]);
 
@@ -40,9 +41,9 @@ class ResidentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($is_active)
     {
-        return Resident::findOrFail($id);
+        return Resident::where('is_active', $is_active)->get();
     }
 
     /**
@@ -56,6 +57,7 @@ class ResidentController extends Controller
             'resident_phone' => 'sometimes|string|max:20',
             'is_permanent' => 'sometimes|in:0,1',
             'is_married' => 'sometimes|in:0,1',
+            'is_active' => 'sometimes|in:0,1',
             'resident_id_card' => 'nullable|image|max:2048',
         ]);
         

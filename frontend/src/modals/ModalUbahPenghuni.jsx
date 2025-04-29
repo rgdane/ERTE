@@ -13,6 +13,7 @@ export default function ModalUbahPenghuni({ isModalOpen, handleCancel, editingDa
             resident_phone: editingData.resident_phone,
             is_permanent: editingData.is_permanent,
             is_married: editingData.is_married,
+            is_active: editingData.is_active,
         });
 
         if (editingData.resident_id_card) {
@@ -75,6 +76,12 @@ export default function ModalUbahPenghuni({ isModalOpen, handleCancel, editingDa
             <Select placeholder="Pilih status pernikahan">
                 <Select.Option value={1}>Menikah</Select.Option>
                 <Select.Option value={0}>Belum Menikah</Select.Option>
+            </Select>
+            </Form.Item>
+            <Form.Item label="Status Aktivasi" name="is_active" rules={[{ required: true, message: 'Pilih status aktivasi' }]}>
+            <Select placeholder="Pilih status aktivasi">
+                <Select.Option value={1}>Aktif</Select.Option>
+                <Select.Option value={0}>Nonaktif</Select.Option>
             </Select>
             </Form.Item>
             <Form.Item label="Foto KTP">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Button, Space, message, Popconfirm, Input } from 'antd';
+import { Table, Button, Space, message, Popconfirm, Input, Select } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import ModalTambahPenghuni from '../modals/ModalTambahPenghuni';
@@ -12,26 +12,32 @@ export default function Penghuni() {
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [editingData, setEditingData] = useState(null);
     const [searchText, setSearchText] = useState('');
+    const [selectedStatus, setSelectedStatus] = useState([1]);
     
     const filteredData = data.filter((item) =>
         (item.resident_fullname || '').toLowerCase().includes(searchText.toLowerCase()) ||
         (item.resident_phone || '').toLowerCase().includes(searchText.toLowerCase())
     );
 
-    const fetchPenghuni = async () => {
+    const fetchPenghuni = async (status) => {
         setLoading(true);
         try {
-        const response = await axios.get('http://127.0.0.1:8000/api/residents'); // GANTI URL sesuai API kamu
-        setData(response.data); // Sesuaikan response sesuai API kamu
+            const url = status === 3 
+                ? 'http://127.0.0.1:8000/api/residents/' 
+                : `http://127.0.0.1:8000/api/residents/${status}`;
+            
+            const response = await axios.get(url);
+            setData(response.data);
         } catch (error) {
-        console.error('Gagal fetch penghuni:', error);
+            console.error('Gagal fetch penghuni:', error);
         }
         setLoading(false);
     };
+    
 
     useEffect(() => {
-        fetchPenghuni();
-    }, []);
+        fetchPenghuni(selectedStatus);
+    }, [selectedStatus]);
 
     const handleDelete = async (id) => {
         try {
@@ -57,6 +63,7 @@ export default function Penghuni() {
         formData.append('resident_phone', values.resident_phone);
         formData.append('is_permanent', values.is_permanent ? 1 : 0);
         formData.append('is_married', values.is_married ? 1 : 0);
+        formData.append('is_active', values.is_active ? 1 : 0);
         if (values.resident_id_card) {
             formData.append('resident_id_card', values.resident_id_card.file);
         }
@@ -69,7 +76,7 @@ export default function Penghuni() {
     
         message.success('Berhasil memperbarui penghuni!');
         setIsEditModalOpen(false);
-        fetchPenghuni(); // refresh tabel
+        fetchPenghuni(selectedStatus); // refresh tabel
         } catch (error) {
         console.error('Gagal update penghuni:', error);
         message.error('Gagal update penghuni!');
@@ -106,6 +113,12 @@ export default function Penghuni() {
             render: (value) => (value ? 'Menikah' : 'Belum Menikah'),
         },
         {
+            title: 'Status Aktivasi',
+            dataIndex: 'is_active', // sesuai field API kamu
+            key: 'is_active',
+            render: (value) => (value ? 'Aktif' : 'Nonaktif'),
+        },
+        {
             title: 'Foto KTP',
             dataIndex: 'resident_id_card', // sesuai field API kamu
             key: 'resident_id_card',
@@ -137,6 +150,14 @@ export default function Penghuni() {
         <div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
             <h1>Daftar Penghuni</h1>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            Status Aktivasi:
+            <Select value={selectedStatus} onChange={(value) => setSelectedStatus(value)} style={{ width: 120 }}>
+                    <Select.Option value={3}>- Semua -</Select.Option>
+                    <Select.Option value={1}>Aktif</Select.Option>
+                    <Select.Option value={0}>Nonaktif</Select.Option>
+            </Select>
+            </div>
             <Button type="primary" icon={<PlusOutlined />} onClick={() => setIsModalOpen(true)}>
             Tambah Penghuni
             </Button>

@@ -13,6 +13,7 @@ export default function ModalTambahPenghuni({ isModalOpen, setIsModalOpen, fetch
         formData.append('resident_phone', values.resident_phone);
         formData.append('is_permanent', values.is_permanent);
         formData.append('is_married', values.is_married);
+        formData.append('is_married', values.is_active);
     
         // cek ada file atau tidak
         if (values.resident_id_card && values.resident_id_card.file) {
@@ -62,6 +63,13 @@ export default function ModalTambahPenghuni({ isModalOpen, setIsModalOpen, fetch
                     <Select placeholder="Pilih status pernikahan">
                         <Select.Option value={1}>Menikah</Select.Option>
                         <Select.Option value={0}>Belum Menikah</Select.Option>
+                    </Select>
+                </Form.Item>
+
+                <Form.Item label="Status Aktivasi" name="is_active" rules={[{ required: true, message: 'Pilih status aktivasi' }]}>
+                    <Select placeholder="Pilih status aktivasi">
+                        <Select.Option value={1}>Aktif</Select.Option>
+                        <Select.Option value={0}>Nonaktif</Select.Option>
                     </Select>
                 </Form.Item>
 
