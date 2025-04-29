@@ -151,7 +151,7 @@ export default function Penghuni() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
             <h1>Daftar Penghuni</h1>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            Status Aktivasi:
+            <span style={{ fontWeight: 500 }}>Status Aktivasi:</span>
             <Select value={selectedStatus} onChange={(value) => setSelectedStatus(value)} style={{ width: 120 }}>
                     <Select.Option value={3}>- Semua -</Select.Option>
                     <Select.Option value={1}>Aktif</Select.Option>

@@ -152,18 +152,22 @@ export default function LaporanKeuangan() {
             </div>
 
             <div style={{ width: '100%', height: 400 }}>
-                <ResponsiveContainer>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+                    <span style={{ fontWeight: 500 }}>Tahun:</span>
                     <Select
                         value={selectedYear}
                         onChange={(value) => setSelectedYear(value)}
-                        style={{ width: 120, marginBottom: 20 }}
-                        >
+                        style={{ width: 120 }}
+                    >
                         {yearsData.map((year) => (
                             <Select.Option key={year} value={year}>
-                            {year}
+                                {year}
                             </Select.Option>
                         ))}
                     </Select>
+                </div>
+
+                <ResponsiveContainer>
                     <BarChart data={mergeData} loading={loading} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="month" />
