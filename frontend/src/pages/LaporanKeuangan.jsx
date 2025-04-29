@@ -123,8 +123,7 @@ export default function LaporanKeuangan() {
             title: 'Pemasukan',
             dataIndex: 'payment',
             key: 'payment',
-            
-            ,
+            render: value => new Intl.NumberFormat('id-ID').format(value),
         },
         {
             title: 'Pengeluaran',
