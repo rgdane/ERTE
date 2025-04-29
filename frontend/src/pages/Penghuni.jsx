@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Button, Space, message, Popconfirm } from 'antd';
+import { Table, Button, Space, message, Popconfirm, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import ModalTambahPenghuni from '../modals/ModalTambahPenghuni';
@@ -11,7 +11,12 @@ export default function Penghuni() {
     const [isModalOpen, setIsModalOpen] = useState(false); // modal tambah penghuni
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [editingData, setEditingData] = useState(null);
-
+    const [searchText, setSearchText] = useState('');
+    
+    const filteredData = data.filter((item) =>
+        (item.resident_fullname || '').toLowerCase().includes(searchText.toLowerCase()) ||
+        (item.resident_phone || '').toLowerCase().includes(searchText.toLowerCase())
+    );
 
     const fetchPenghuni = async () => {
         setLoading(true);
@@ -130,7 +135,12 @@ export default function Penghuni() {
             Tambah Penghuni
             </Button>
         </div>
-        <Table columns={columns} dataSource={data} loading={loading} rowKey="resident_id" pagination={{ pageSize: 5 }} />
+        <Input.Search
+            placeholder="Cari..."
+            onChange={(e) => setSearchText(e.target.value)}
+            style={{ marginBottom: 16 }}
+        />
+        <Table columns={columns} dataSource={filteredData} loading={loading} rowKey="resident_id" pagination={{ pageSize: 5 }} />
 
         <ModalTambahPenghuni
             isModalOpen={isModalOpen}

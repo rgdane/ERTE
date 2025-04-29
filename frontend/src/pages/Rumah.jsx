@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Button, Space, message, Popconfirm } from 'antd';
+import { Table, Button, Space, message, Popconfirm, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import ModalTambahRumah from '../modals/ModalTambahRumah';
@@ -11,7 +11,11 @@ export default function Rumah() {
     const [isModalOpen, setIsModalOpen] = useState(false); // modal tambah rumah
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [editingData, setEditingData] = useState(null);
-
+    const [searchText, setSearchText] = useState('');
+    
+    const filteredData = data.filter((item) =>
+        (item.house_address || '').toLowerCase().includes(searchText.toLowerCase())
+    );
 
     const fetchRumah = async () => {
         setLoading(true);
@@ -106,7 +110,12 @@ export default function Rumah() {
             Tambah Rumah
             </Button>
         </div>
-        <Table columns={columns} dataSource={data} loading={loading} rowKey="house_id" pagination={{ pageSize: 5 }} />
+        <Input.Search
+            placeholder="Cari..."
+            onChange={(e) => setSearchText(e.target.value)}
+            style={{ marginBottom: 16 }}
+        />
+        <Table columns={columns} dataSource={filteredData} loading={loading} rowKey="house_id" pagination={{ pageSize: 5 }} />
 
         <ModalTambahRumah
             isModalOpen={isModalOpen}
