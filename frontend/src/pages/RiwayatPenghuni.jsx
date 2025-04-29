@@ -114,7 +114,7 @@ export default function RiwayatPenghuni() {
                 <Space size="middle">
                     <Button type="primary" onClick={() => openEditModal(record)}>Ubah</Button>
                     <Popconfirm
-                        title="Yakin mau hapus riwayat penghuni ini?"
+                        title="Yakin ingin hapus riwayat penghuni ini?"
                         description="Data yang dihapus tidak bisa dikembalikan."
                         okText="Ya, hapus"
                         cancelText="Batal"

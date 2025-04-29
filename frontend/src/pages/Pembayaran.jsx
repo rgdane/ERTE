@@ -114,7 +114,7 @@ export default function Pembayaran() {
                 <Space size="middle">
                     <Button type="primary" onClick={() => openEditModal(record)}>Ubah</Button>
                     <Popconfirm
-                        title="Yakin mau hapus pembayaran ini?"
+                        title="Yakin ingin hapus pembayaran ini?"
                         description="Data yang dihapus tidak bisa dikembalikan."
                         okText="Ya, hapus"
                         cancelText="Batal"

@@ -95,7 +95,7 @@ export default function Rumah() {
                 <Space size="middle">
                     <Button type="primary" onClick={() => openEditModal(record)}>Ubah</Button>
                     <Popconfirm
-                        title="Yakin mau hapus rumah ini?"
+                        title="Yakin ingin hapus rumah ini?"
                         description="Data yang dihapus tidak bisa dikembalikan."
                         okText="Ya, hapus"
                         cancelText="Batal"
