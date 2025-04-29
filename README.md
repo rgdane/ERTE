@@ -1,4 +1,4 @@
-# ERTE - Electronic Resident Transaction Environment
+# ERTE - Electronic Resident Transaction Environment by Rega Dane Wijayanta
 
 Aplikasi manajemen data warga, rumah, histori kependudukan, dan pembayaran, dibangun menggunakan Laravel (backend) dan React (frontend).
 
