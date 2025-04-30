@@ -30,6 +30,7 @@ C:\laragon\www\
 ```
 
 ### 2. Jalankan Backend (Laravel)
+Hidupkan MySQL di Laragon, lalu buka projectnya menggunakan terminal VScode atau CMD, kemudian jalankan script berikut.
 ```bash
 cd C:\laragon\www\ERTE\backend
 composer install
