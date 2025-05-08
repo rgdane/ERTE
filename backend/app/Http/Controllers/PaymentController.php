@@ -28,9 +28,7 @@ class PaymentController extends Controller
             'payment_type' => ['required', Rule::in(array_column(PaymentType::cases(), 'value'))],
             'month' => 'required|integer',
             'amount' => 'required|integer|min:0',
-            'payment_date' => 'required|date',
-            'month_period' => 'required|integer',
-            'year_period' => 'required|integer',
+            'payment_date' => 'required|date'
         ]);
 
         $payment = Payment::create($data);
@@ -64,7 +62,7 @@ class PaymentController extends Controller
             'amount' => 'sometimes|integer|min:0',
             'payment_date' => 'sometimes|date',
             'month_period' => 'sometimes|integer',
-            'year_period' => 'sometimes|integer',
+            'year_period' => 'sometimes|integer'
         ]);
 
         $payment->update($data);
