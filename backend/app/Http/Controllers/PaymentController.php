@@ -61,8 +61,6 @@ class PaymentController extends Controller
             'month' => 'sometimes|integer',
             'amount' => 'sometimes|integer|min:0',
             'payment_date' => 'sometimes|date',
-            'month_period' => 'sometimes|integer',
-            'year_period' => 'sometimes|integer'
         ]);
 
         $payment->update($data);
